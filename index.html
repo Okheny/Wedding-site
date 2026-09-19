@@ -894,6 +894,27 @@
     90%{opacity:0.5;}
     100%{transform:translateY(110vh) translateX(30px) rotate(280deg); opacity:0;}
   }
+  .love{
+    position:absolute;
+    top:-50px;
+    font-size:20px;
+    opacity:0.6;
+    user-select:none;
+    animation:loveFall linear infinite;
+}
+
+@keyframes loveFall{
+    0%{
+        transform:translateY(0) translateX(0) rotate(0deg);
+        opacity:0;
+    }
+    10%{opacity:0.8;}
+    90%{opacity:0.7;}
+    100%{
+        transform:translateY(110vh) translateX(50px) rotate(360deg);
+        opacity:0;
+    }
+}
 
   /* ---------- Music toggle ---------- */
   .music-toggle{
@@ -2130,12 +2151,31 @@
   </script>
 
 <script>
-  // ---------- Floating petals ----------
-  const petalWrap = document.getElementById('petals');
-  const petalColors = ['#E2984A', '#6FAFD9', '#F1EDE2'];
-  for (let i = 0; i < 14; i++) {
+  // ---------- Floating petals & hearts ----------
+const petalWrap = document.getElementById('petals');
+const petalColors = ['#E2984A', '#6FAFD9', '#F1EDE2'];
+const loveSymbols = ['❤️','💕','♥'];
+
+for (let i = 0; i < 35; i++) {
+
+  if (Math.random() < 0.35) {
+
+    const love = document.createElement('div');
+    love.className = 'love';
+    love.textContent = loveSymbols[Math.floor(Math.random() * loveSymbols.length)];
+
+    love.style.left = Math.random() * 100 + '%';
+    love.style.fontSize = (18 + Math.random() * 12) + 'px';
+    love.style.animationDuration = (10 + Math.random() * 10) + 's';
+    love.style.animationDelay = (Math.random() * 10) + 's';
+
+    petalWrap.appendChild(love);
+
+  } else {
+
     const p = document.createElement('div');
     p.className = 'petal';
+
     const size = 6 + Math.random() * 8;
     p.style.width = size + 'px';
     p.style.height = size + 'px';
@@ -2143,8 +2183,10 @@
     p.style.background = petalColors[i % petalColors.length];
     p.style.animationDuration = (10 + Math.random() * 10) + 's';
     p.style.animationDelay = (Math.random() * 10) + 's';
+
     petalWrap.appendChild(p);
   }
+}
 
   // ---------- Scroll reveal ----------
   document.querySelectorAll('section:not(.hero)').forEach(el => el.classList.add('reveal'));
