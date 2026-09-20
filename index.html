@@ -1805,11 +1805,11 @@
 
       <!-- EDIT HERE: replace name, phone number (used for both the tel: and wa.me links), and the WhatsApp message text -->
       <div class="contact-card">
-        <div class="cname">Wedding Coordinator</div>
-        <div class="cphone">+234 800 000 0000</div>
+        <div class="cname">Taiwo Oluwafemi</div>
+        <div class="cphone">+234 903 133 4712</div>
         <div class="contact-actions">
-          <a class="cal-btn" href="tel:+2348000000000">Call</a>
-          <a class="cal-btn" href="https://wa.me/2348000000000?text=Hi!%20I%20have%20a%20question%20about%20Kehinde%20%26%20Tomiwa's%20wedding." target="_blank" rel="noopener">WhatsApp</a>
+          <a class="cal-btn" href="tel:+2349031334712">Call</a>
+          <a class="cal-btn" href="https://wa.me/2349031334712?text=Hi!%20I%20have%20a%20question%20about%20Kehinde%20%26%20Tomiwa's%20wedding." target="_blank" rel="noopener">WhatsApp</a>
         </div>
       </div>
       <!-- END EDIT: contact -->
@@ -1915,37 +1915,7 @@
   <button class="music-toggle" id="musicToggle" onclick="toggleMusic()" aria-label="Play background music">♪</button>
 
   <!--
-    SUPABASE SETUP — this powers RSVPs, the gift list (with live "already claimed" tracking), the
-    guestbook, the self-populating bridal party list, and guest photo/video uploads. It's already
-    configured with your project below — nothing more to do here unless you rotate your keys.
 
-    IMPORTANT — Row Level Security (RLS): Supabase blocks all reads/writes by default until you
-    add policies. For each of these tables, go to your Supabase dashboard → Table Editor → select
-    the table → RLS → New Policy, and add:
-      - An INSERT policy allowing the "anon" role (so guests can submit) — needed on:
-        guests, rsvps, gifts, guestbook, bridal_party
-      - A SELECT policy allowing the "anon" role (needed so the page can read data back and show
-        it live) — needed on: gifts (for "already claimed"), bridal_party (for the live list)
-    Without these policies, every request below will fail with a permission error — this is the
-    #1 thing to check if a form or live list stops working. The easiest way to add all of these
-    at once is the SQL Editor — see the script from earlier in this conversation.
-
-    STORAGE POLICIES: your "bridal-party" and "wedding-photos" buckets need their own policies too
-    (separate from the table RLS above) — in the dashboard go to Storage → Policies, and add an
-    INSERT policy for the "anon" role on each bucket so uploads are allowed. Since both buckets are
-    already marked Public, reading uploaded files back (for display) should already work without
-    an extra policy — it's specifically uploading that needs the INSERT policy added.
-
-    Actual columns used, matching your real schema:
-      guests:       name, email, plus_one, rsvp_status, invitation_sent
-                     (also has: phone, group_name — not currently set by the site, both left blank)
-      rsvps:        guest_id (links to guests.id), attendance, message
-                     (event choice, guest count, and meal preference are folded into the "message"
-                     text, since there's no dedicated column for those)
-      gifts:        gift_name, gift_link, claimed, claimed_by
-                     (gift_link is left blank — nothing on the form currently sets it)
-      guestbook:    guest_name, message
-      bridal_party: name, role, photo_url
   -->
   <script>
     const SUPABASE_URL = 'https://wnftzngeohundsrfggjy.supabase.co/rest/v1/';
