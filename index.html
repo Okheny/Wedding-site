@@ -1130,36 +1130,95 @@
     font-size:16px;
     color:var(--sky-deep);
   }
-  #loader{
+  /* ===== Luxury Photo Loading Screen ===== */
+
+#loader{
   position:fixed;
   inset:0;
-  background:#FBF9F4;
+  z-index:99999;
+
+  /* CHANGE IMAGE NAME HERE */
+  background:url('images/engagement-photo.jpg') center center/cover no-repeat;
+
   display:flex;
   justify-content:center;
   align-items:center;
-  z-index:99999;
+
+  transition:opacity 1s ease;
+}
+
+.loader-overlay{
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,.45);
+
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+#loader.hide{
+  opacity:0;
+  pointer-events:none;
 }
 
 .loader-content{
   text-align:center;
+  color:white;
+  animation:loaderZoom 3s ease-in-out infinite;
 }
 
 .loader-monogram{
-  font-size:72px;
-  color:#6FAFD9;
+  font-family:'Cormorant Garamond', serif;
+  font-size:90px;
+  font-weight:700;
+  letter-spacing:.08em;
+  text-shadow:0 3px 20px rgba(0,0,0,.3);
+}
+
+.loader-monogram span{
+  color:#E2984A;
 }
 
 .loader-date{
   margin-top:10px;
-  color:#E2984A;
+  font-size:22px;
+  letter-spacing:.15em;
+  text-transform:uppercase;
+}
+
+.loader-subtitle{
+  margin-top:8px;
+  font-size:14px;
+  letter-spacing:.35em;
+  opacity:.9;
+}
+
+@keyframes loaderZoom{
+
+  0%{
+    transform:scale(.95);
+  }
+
+  50%{
+    transform:scale(1);
+  }
+
+  100%{
+    transform:scale(.95);
+  }
+
 }
 </style>
 </head>
 <body>
   <div id="loader">
-  <div class="loader-content">
-    <div class="loader-monogram">K<span>&</span>T</div>
-    <div class="loader-date">June 2027</div>
+  <div class="loader-overlay">
+    <div class="loader-content">
+      <div class="loader-monogram">K<span>&</span>T</div>
+      <div class="loader-date">A Celebration of Love</div>
+      <div class="loader-subtitle">20 June 2027</div>
+    </div>
   </div>
 </div>
 
