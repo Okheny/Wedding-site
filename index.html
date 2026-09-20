@@ -2786,7 +2786,14 @@ for (let i = 0; i < 35; i++) {
         }
       });
     });
+
+// Click photo to view full size
+document.querySelectorAll('.photo-grid img').forEach(img => {
+  img.addEventListener('click', () => {
+    window.open(img.src, '_blank');
   });
+});
+
 </script>
 
 </body>
