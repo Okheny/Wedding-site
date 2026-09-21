@@ -876,8 +876,9 @@
   .love{
     position:absolute;
     top:-50px;
-    font-size:20px;
-    opacity:0.6;
+    font-size:10px;
+    opacity:0.08;
+    filter:blur(1px);
     user-select:none;
     animation:loveFall linear infinite;
 }
@@ -2125,9 +2126,10 @@ for (let i = 0; i < 10; i++) {
     love.textContent = loveSymbols[Math.floor(Math.random() * loveSymbols.length)];
 
     love.style.left = Math.random() * 100 + '%';
-    love.style.fontSize = (18 + Math.random() * 12) + 'px';
+    love.style.fontSize = (10 + Math.random() * 6) + 'px';
     love.style.animationDuration = (10 + Math.random() * 10) + 's';
     love.style.animationDelay = (Math.random() * 10) + 's';
+    love.style.opacity='0.12';
 
     petalWrap.appendChild(love);
 
